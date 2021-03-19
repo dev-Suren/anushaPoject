@@ -1,0 +1,3 @@
+{% for job in jobs %}
+<br><br><a href="{% url 'applicant' job.job_id %}">{{ job }}</a><br><br>
+{% endfor %}

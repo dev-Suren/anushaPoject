@@ -1,0 +1,17 @@
+{% load static %}
+<html>
+<link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}" />
+    <h1>view your saved jobs</h1>
+
+    {% for job in jobs %}
+    title               :{{ job.job.job_title }}<br>
+    category            :{{ job.job.job_category}}<br>
+    Position            :{{ job.job.job_position }}<br>
+    Employer            :{{ job.job.job_employer }}<br>
+    Description         :{{ job.job.job_description }}<br>
+    Phone               :{{ job.job.job_phone }}<br>
+    website             :{{ job.job.job_website }}<br>
+    <a href="{% url 'remove_job' id=job.job_id %}"><button class="btn btn-primary">remove</button></a>
+    <br><br><br><br>
+    {% endfor %}
+</html>

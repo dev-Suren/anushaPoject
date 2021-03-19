@@ -1,0 +1,8 @@
+{% if jobs %}
+<h1>applicants for {{ job.job }}</h1>
+{% for jobs in jobs %}
+name of applicant:{{jobs.user.first_name}} {{jobs.user.last_name}}  <br>   {{jobs.user.email}}  <br> <br> <br> <br> <br> <br>
+{% endfor %}
+{% else %}
+<h1>{{job}}</h1>
+{% endif %}

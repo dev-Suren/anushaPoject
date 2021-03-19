@@ -1,0 +1,81 @@
+{% load static %}
+<head>
+  <title>Home</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home</title>
+  <!-- <link rel="stylesheet" href="./styles.css"> -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+  />
+</head>
+
+<nav>
+  <div class="logo"></div>
+  <ul class="nav-items">
+    <li class="nav-item"><a href="{% url 'landingpage' %}"> Home</a></li>
+    <li class="nav-item"><a href="{% url 'profile' %}"> profile</a></li>
+    <li class="nav-item"><a href="{% url 'logout' %}"> logout</a></li>
+  </ul>
+</nav>
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}" />
+<div class="container">
+  <div class="row">
+    <ul class="job-items">
+      {% for job in jobs %}
+
+
+      <li class="job-item" >
+        <div class="job-item-left">
+         <a href="{% url 'job_details' %}"> <h2 class="job-item-title">{{ job.job_title }}</h2></a>
+          {% comment %} <p class="job-desc">Job Description: {{ job.job_description }}</p> {% endcomment %}
+          <p>Employer: {{ job.job_employer }}</p>
+          <p class="position">Position: {{ job.job_position }}</p>
+          <div class="job-category-wrapper">
+            <p class="job-item-category">Category:</p>
+            <p></p>
+            <p class="job-category">{{ job.job_category }}</p>
+          </div>
+        </div>
+
+        <div class="job-item-low">
+          <h5>Contact Info</h5>
+          <p>Phone: {{ job.job_phone }}</p>
+          <p>Email Us: <a href="">{{ job.job_email }}</a></p>
+          <p>Apply On Our Website: <a href="">{{ job.job_website }}</a></p>
+          <div class="job-item-cta">
+            <a href="{% url 'delete_job' id=job.job_id %}"><button  class="btn btn-primary" style="float: right; margin-right: 40px">Delete Job</button></a
+            >
+          </div>
+          <div class="job-item-cta">
+            <a href=""
+              ><button
+                class="btn btn-primary"
+                style="float: right; margin-right: 40px"
+              >
+                edit Job
+              </button></a
+            >
+          </div>
+        </div>
+      </li>
+
+      {% endfor %}
+      <div class="cta">
+        <a href="{% url 'list_job' %}"
+          ><button class="btn btn-primary centrebtn">aDD more Jobs</button></a
+        >
+      </div>
+      <div style="height: 10px">
+        {% for message in messages %}
+        <h1>{{message}}</h1>
+        {% endfor %}
+      </div>
+    </ul>
+  </div>
+</div>
+{% endblock %}

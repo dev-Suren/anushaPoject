@@ -1,0 +1,17 @@
+
+<html>
+    <h1>view your applied jobs</h1>
+
+    {% for job in jobs %}
+    <p>title               :{{ job.job.job_title }}</p>
+    <p>category            :{{ job.job.job_category}}</p>
+    <p>Position            :{{ job.job.job_position }}</p>
+    <p>Employer            :{{ job.job.job_employer }}</p>
+    <p>Description         :{{ job.job.job_description }}</p>
+    <p>Phone               :{{ job.job.job_phone }}</p>
+    <p>website             :{{ job.job.job_website }}</p>
+    <a href="{% url 'remove_applied_job' id=job.job_id %}"><button class="btn btn-primary">cancle application</button></a>
+
+    <br><br><br><br>
+    {% endfor %}
+</html>

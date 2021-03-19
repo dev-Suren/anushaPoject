@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  
+</head>
+<body>
+    <nav>
+        <div class="logo"></div>
+        <ul class="nav-items">
+        
+            <li class="nav-item"><a href="/"> Home</a></li>
+            <li class="nav-item"><a href="../login"> Login</a></li>
+            <li class="nav-item"><a href=""> Signup</a></li>
+        </ul>
+    </nav>
+    <main class="signup">
+        <div class="container">
+           <div class="signup-form-wrapper">
+            <form action="{% url 'register' %}" method="post">
+                {% csrf_token %}
+                <div>
+                 <label for="type">Register as:</label>
+                    <select name="userType" id="type">
+                    <option value="seeker">Seeker</option>
+                    <option value="recruiter">Recruiter</option>
+                        
+                        
+                    </select>
+                </div>
+                
+                <div class="form-item">
+                    <input type="text" class="form-input" name="first_name" placeholder="First Name">
+                </div>
+                <div class="form-item">
+                    <input type="text" class="form-input" name="last_name" placeholder="Last Name">
+                </div>
+                <div>
+                    <label for="gender">Gender:</label>
+                       <select name="gender" id="gender">
+                           <option value="male">Male</option>
+                           <option value="female">Female</option>
+                           
+                       </select>
+                   </div>
+                <div class="form-item">
+                    <input type="text" class="form-input" name="username" placeholder="Username">
+                </div>
+                <div class="form-item">
+                    <input type="text" class="form-input" name="contact" placeholder="Contact number">
+                </div>
+                <div class="form-item">
+                    <input type="email" required="true" class="form-input" name="email" placeholder="Email">
+                </div>
+                <div class="form-item">
+                    <input type="password" class="form-input" name="password1" placeholder="Password">
+                </div>
+                <div class="form-item">
+                    <input type="password" class="form-input" name="password2" placeholder="Confirm Password">
+                </div>
+                <div class="form-item">
+                    <input type="submit" name="submit" class="form-button btn btn-primary" value="Signup">
+                </div>
+                <p>Already a member? <a href="../login">Login</a></p>
+                <div style="height: 10px;">
+                    {% for message in messages %}
+                    <h1>{{message}}</h1>
+                    {% endfor %}
+                </div>
+            </form>
+           </div>
+        </div>
+    </main>
+    
+</body>
+</html>

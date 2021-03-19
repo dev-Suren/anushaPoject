@@ -1,0 +1,108 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <!-- <link rel="stylesheet" href="./styles.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+
+<body>
+    <nav>
+        <div class="logo"></div>
+        <ul class="nav-items">
+            <li class="nav-item"><a href="/"> Home</a></li>
+            <li class="nav-item"><a href="accounts/login"> Login</a></li>
+            <div class="dropdown">
+                <button class="dropbtn">Register
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                  <a href="accounts/register">Seeker</a>
+                  <a href="accounts/recruiter">Recruiter</a>
+                </div>
+              </div>
+        </ul>
+    </nav>
+    <main class="hero">
+        <div class="container">
+            <div class="hero-left">
+                <h1 class="hero-title">Welcome to RojgaarKhoji.</h1>
+                <p class="hero-desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem velit odio sit
+                    eligendi. Unde eaque est dolorem! Cupiditate, voluptate error.</p>
+                <div class="cta">
+                    <div class="search-bar">
+                        {% comment %} <input type="text" placeholder="Search your job" class="search-bar-input"> {% endcomment %}
+                        <a href="accounts/login"><button class="get-started-btn btn-primary">Get started</button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-right">
+
+                <div class="hero-right-image">
+                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="">
+                </div>
+            </div>
+
+        </div>
+    </main>
+    <section class="services">
+        <div class="services-container section-container">
+            <h3>Our Services</h3>
+            <ul class="services-items">
+                <li class="services-item">
+                    <i class="fa fa-search"></i>
+                    <p>Job Search</p>
+                </li>
+                <li class="services-item">
+                    <i class="fa fa-user-friends"></i>
+                    <p>Recruitment</p>
+                </li>
+
+                <li class="services-item">
+                    <i class="fa fa-home"></i>
+                    <p>Placement</p>
+                </li>
+
+            </ul>
+        </div>
+    </section>
+    <section class="motto">
+        <div class="motto-wrapper">
+            <div class="motto-text">
+                <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, laborum.</h2>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis, accusamus.</p>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="footer-el footer-el-a">
+            <ul>
+                <li><a href="#!">lorem</a></li>
+                <li><a href="#!">lorem</a></li>
+                <li><a href="#!">lorem</a></li>
+            </ul>
+        </div>
+        <div class="footer-el footer-el-b">
+            <ul>
+                <li><a href="#!">lorem</a></li>
+                <li><a href="#!">lorem</a></li>
+                <li><a href="#!">lorem</a></li>
+            </ul>
+        </div>
+        <div class="footer-el footer-el-c">
+            <ul>
+                <li><a href="#!">lorem</a></li>
+                <li><a href="#!">lorem</a></li>
+                <li><a href="#!">lorem</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+
+</html>
