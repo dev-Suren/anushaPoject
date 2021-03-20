@@ -47,3 +47,17 @@ class AppliedJobs(models.Model):
     job = models.ForeignKey(Job, on_delete=models.CASCADE, blank=True, null=True)
 
 
+class recruiterDetails(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
+
+
+    userTypes = models.CharField(max_length=15,null=True)
+    Location = models.CharField(max_length=15, null=True)
+    CompanyType = models.CharField(max_length=15, null=True)
+    personalName = models.CharField(max_length=15, null=True)
+    personalContact = models.CharField(max_length=15, null=True)
+    
+
+
+
+

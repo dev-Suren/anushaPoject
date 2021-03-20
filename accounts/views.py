@@ -226,34 +226,39 @@ def search(request):
 
 def recruiter(request):
     if request.method == 'POST':
-        first_name = request.POST['company_name']
-        last_name = request.POST['personal_name']
-        contact = request.POST['company_number']
+        userTypes = 'recruiter'
+        CompanyEmail = request.POST['company_email']
+        CompanyName = request.POST['company_name']
+        Location = request.POST['location']
+        CompanyType = request.POST['types']
+        contactNumber = request.POST['company_number']
+        personalName = request.POST['personal_name']
+        personalContact = request.POST['contact']
+        personalEmail = request.POST['email']
         password1 = request.POST['password1']
         password2 = request.POST['password2']
-        email = request.POST['company_email']
-        username = request.POST['location']
-        gender = request.POST['types']
+
+        
 
         if password1 != password2:
             messages.info(request, 'passwords are different')
-            return redirect('register')
+            return redirect('recruiter')
 
-        if User.objects.filter(username=username).exists():
+        if User.objects.filter(username=personalEmail).exists():
             messages.info(request, 'username taken')
-            return redirect('register')
+            return redirect('recruiter')
            
-        if User.objects.filter(email=email).exists():
+        if User.objects.filter(email=CompanyEmail).exists():
             messages.info(request, 'email taken')
-            return redirect('register')
+            return redirect('recruiter')
          
-        user = User.objects.create_user(
-            username=username, password=password1, email=email, first_name=first_name, last_name=last_name)
-        Client.objects.create(
-            user=user, contact=contact, gender=gender, userType=userType)
+        user = User.objects.create(
+            username=personalEmail, password=password1, email=CompanyEmail, first_name=CompanyName, last_name=contactNumber)
+        recruiterDetails.objects.create(
+            user = user,userTypes = userTypes,Location= Location,CompanyType=CompanyType,personalName=personalName,personalContact=personalContact)
         auth.login(request, user)
 
-        return redirect('seekerDashboard')
+        return redirect('/recruiter')
 
     else:
         return render(request, 'recruiter.html')
