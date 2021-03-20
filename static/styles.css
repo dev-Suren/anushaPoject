@@ -532,3 +532,191 @@ input[type=submit] {
 
 
   
+/*test css-------------------------------------------------------------------------test css*/
+
+
+
+.wrapper {
+    margin-top:5%;
+    margin-left:30%;
+    width: 700px;
+    background: #FFF;
+    border-radius: 10px;
+    box-shadow: 0 25px 70px rgba(0, 0, 0, .05);
+    overflow: hidden;
+}
+
+h1.title {
+    padding: 15px 0;
+    margin-left: 25px;
+    font-weight: normal;
+    color: rgba(57, 50, 173, 1)
+}
+
+.form {
+    width: 700px;
+}
+
+.myform {
+    background: #F4F5F7;
+    padding: 25px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 25px
+}
+
+.myform label {
+    display: block;
+    color: #A8AAC5;
+    font-weight: bold;
+    font-size: .8rem;
+    margin-bottom: 10px;
+}
+
+.myform input {
+    border: 0;
+    outline: 0;
+    height: 50px;
+    background: #FFF;
+    width: 100%;
+    border-radius: 5px;
+    color: #000000;
+    font-weight: 700;
+    font-size: .9rem;
+    text-indent: 15px;
+    border: 2px solid transparent;
+    transition: border 250ms;
+}
+
+.full-width {
+    grid-column: -1 / 1
+}
+
+.button {
+    grid-column: -1 / 1;
+    display: flex;
+    justify-content: center;
+}
+
+.button button {
+    border: 0;
+    outline: 0;
+    width: 120px;
+    height: 50px;
+    border-radius: 50px;
+    color: #FFF;
+    font-weight: bold;
+    font-size: .9rem;
+    cursor: pointer;
+    background: linear-gradient(356deg, rgba(57, 50, 173, 1) 0%, rgba(87, 50, 173, 1) 100%);
+}
+select {
+  background-color: #3c4366;
+  color: white;
+  padding: 12px;
+  width: 300px;
+  border: none;
+  font-size: 20px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  -webkit-appearance: button;
+  appearance: button;
+  outline: none;
+}
+
+
+
+
+.button button:hover {
+    background: rgba(57, 50, 173, 1);
+}
+
+
+
+/*test css-------------------------------------------------------------------------test css*/
+
+
+
+/*test css-------------------------------------------------------------------------test css*/
+.form-box{
+	width: 380px;
+	height: 480px;
+	position: relative;
+	margin: 6% auto;
+	background: #fff;
+	padding: 5px;
+	overflow: hidden;
+}
+.button-box{
+	width: 220px;
+	margin: 35px auto;
+	position: relative;
+	box-shadow: 0 0 20px 9px #33ffcc1f;
+	border-radius: 30px;
+}
+
+.toggle-btn{
+	padding: 10px 30px;
+	cursor: pointer;
+	background: transparent;
+	border:0;
+	outline: none;
+	position: relative;
+}
+#btn{
+	top: 0;
+	left: 0;
+	position: absolute;
+	width: 110px;
+	height: 100%;
+	background: linear-gradient(to bottom, #33ccff 0%, #66ff33 100%);
+	border-radius: 30px;
+	transition: .5s;
+}
+
+.input-group{
+	top: 180px;
+	position: absolute;
+	width: 280px;
+	transition: .5s;
+}
+.input-field{
+	width: 100%;
+	padding: 10px 0;
+	margin: 5px 0;
+	border-left: 0;
+	border-top: 0;
+	border-right: 0;
+	border-bottom: 1px solid #999;
+	outline: none;
+	background: transparent;
+}
+.submit-btn{
+	width: 85%;
+	padding: 10px 30px;
+	cursor: pointer;
+	display: block;
+	margin: auto;
+	background: linear-gradient(to bottom, #33ccff 0%, #66ff33 100%);
+	border:0;
+	outline: none;
+	border-radius: 30px;
+}
+.check-box{
+	margin: 30px 10px 30px 0;
+}
+span{
+	color: #777;
+	font-size: 12px;
+	bottom: 68px;
+	position: absolute; 
+}
+#login{
+	left: 50px;
+}
+#register{
+	left: 450px;
+}
+
+
+/*test css-------------------------------------------------------------------------test css*/
+

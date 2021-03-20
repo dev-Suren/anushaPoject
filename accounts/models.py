@@ -5,7 +5,10 @@ class Client(models.Model):
     user= models.ForeignKey(User,on_delete=models.CASCADE)
     contact = models.CharField(max_length=15,null=True)
     gender = models.CharField(max_length=10, null=True)
-    userType = models.CharField(max_length=15, null=True)
+    address = models.CharField(max_length=50, null=True)
+    education = models.CharField(max_length=50, null=True)
+    interestedIN = models.CharField(max_length=50, null=True)
+    userTypes = models.CharField(max_length=15, null=True)
 
     def __str__(self):
         return self.user.username
@@ -50,12 +53,18 @@ class AppliedJobs(models.Model):
 class recruiterDetails(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
 
-
+    contactNumber = models.CharField(max_length=30,null=True)
     userTypes = models.CharField(max_length=15,null=True)
     Location = models.CharField(max_length=15, null=True)
+    CompanyEmail = models.CharField(max_length=15, null=True)
     CompanyType = models.CharField(max_length=15, null=True)
+    CompanyName = models.CharField(max_length=15, null=True)
+    CompanyContact = models.CharField(max_length=15, null=True)
     personalName = models.CharField(max_length=15, null=True)
     personalContact = models.CharField(max_length=15, null=True)
+
+    def __str__(self):
+        return self.user.username
     
 
 

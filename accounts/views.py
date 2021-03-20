@@ -8,15 +8,17 @@ from django.shortcuts import HttpResponse
 
 def register(request):
     if request.method == 'POST':
-        first_name = request.POST['first_name']
-        last_name = request.POST['last_name']
-        contact = request.POST['contact']
         password1 = request.POST['password1']
         password2 = request.POST['password2']
-        email = request.POST['email']
+        email = request.POST['emailaddress']
         username = request.POST['username']
+        first_name = request.POST['firstname']
+        last_name = request.POST['lastname']
+        address = request.POST['address']
         gender = request.POST['gender']
-        userType = request.POST['userType']
+        contact = request.POST['contact']
+        educationLevel = request.POST['educationLevel']
+        userType = 'seeker'
 
         if password1 != password2:
             messages.info(request, 'passwords are different')
@@ -29,14 +31,15 @@ def register(request):
         if User.objects.filter(email=email).exists():
             messages.info(request, 'email taken')
             return redirect('register')
-         
         user = User.objects.create_user(
-            username=username, password=password1, email=email, first_name=first_name, last_name=last_name)
+            username = username, password = password1, email = email, first_name=first_name,last_name=last_name
+        )
         Client.objects.create(
-            user=user, contact=contact, gender=gender, userType=userType)
-        auth.login(request, user)
-
+            user = user, userType = userType, address=address,gender=gender,contact=contact,education=educationLevel
+        )
+        auth.login(request,user)
         return redirect('seekerDashboard')
+
 
     else:
         return render(request, 'register.html')
@@ -53,7 +56,7 @@ def login(request):
         user = auth.authenticate(username=username, password=password1)
         if user is not None:
             client1=Client.objects.get(user=user)
-            if(client1.userType == 'seeker'):
+            if(client1.userTypes == 'seeker'):
                 auth.login(request, user)
                 return redirect('seekerDashboard')
                 auth.login(request, user)
@@ -65,8 +68,7 @@ def login(request):
                 
             else:
                 auth.login(request, user)
-                return redirect('landingpage')
-                auth.login(request, user)
+                return redirect('recruiter')
 
 
         else:
@@ -78,7 +80,6 @@ def login(request):
 
 
 def logout(request):
-    return render(request, 'recruiter.html')
     auth.logout(request)
     return redirect('home')
 
@@ -227,16 +228,21 @@ def search(request):
 def recruiter(request):
     if request.method == 'POST':
         userTypes = 'recruiter'
-        CompanyEmail = request.POST['company_email']
-        CompanyName = request.POST['company_name']
-        Location = request.POST['location']
-        CompanyType = request.POST['types']
-        contactNumber = request.POST['company_number']
-        personalName = request.POST['personal_name']
-        personalContact = request.POST['contact']
-        personalEmail = request.POST['email']
         password1 = request.POST['password1']
         password2 = request.POST['password2']
+        email = request.POST['emailaddress']
+        username = request.POST['username']
+
+
+        CompanyEmail = request.POST['CompanyEmail']
+        CompanyName = request.POST['CompanyName']
+        Location = request.POST['address']
+        CompanyType = request.POST['CompanyTypes']
+        contactNumber = request.POST['CompanyContact']
+        personalName = request.POST['PersonalName']
+        personalContact = request.POST['PersonalContact']
+        address = request.POST['address']
+        
 
         
 
@@ -244,18 +250,18 @@ def recruiter(request):
             messages.info(request, 'passwords are different')
             return redirect('recruiter')
 
-        if User.objects.filter(username=personalEmail).exists():
+        if User.objects.filter(username=username).exists():
             messages.info(request, 'username taken')
             return redirect('recruiter')
            
-        if User.objects.filter(email=CompanyEmail).exists():
+        if User.objects.filter(email=email).exists():
             messages.info(request, 'email taken')
             return redirect('recruiter')
          
         user = User.objects.create(
-            username=personalEmail, password=password1, email=CompanyEmail, first_name=CompanyName, last_name=contactNumber)
+            username=username, password=password1, email=email)
         recruiterDetails.objects.create(
-            user = user,userTypes = userTypes,Location= Location,CompanyType=CompanyType,personalName=personalName,personalContact=personalContact)
+            user = user,userTypes = userTypes,Location= Location,CompanyName=CompanyName,CompanyContact=contactNumber,CompanyType=CompanyType,personalName=personalName,personalContact=personalContact,CompanyEmail=CompanyEmail)
         auth.login(request, user)
 
         return redirect('/recruiter')
