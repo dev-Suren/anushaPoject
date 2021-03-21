@@ -35,7 +35,10 @@ def register(request):
             username = username, password = password1, email = email, first_name=first_name,last_name=last_name
         )
         Client.objects.create(
-            user = user, userTypes = userType, address=address,gender=gender,contact=contact,education=educationLevel
+            user = user, address=address,gender=gender,contact=contact,education=educationLevel
+        )
+        UserDataTypes.objects.create(
+            userTypes = userType,user = user
         )
         auth.login(request,user)
         return redirect('seekerDashboard')
@@ -55,20 +58,15 @@ def login(request):
         password1 = request.POST['password1']
         user = auth.authenticate(username=username, password=password1)
         if user is not None:
-            client1=Client.objects.get(user=user)
+            client1=UserDataTypes.objects.get(user=user)
             if(client1.userTypes == 'seeker'):
                 auth.login(request, user)
                 return redirect('seekerDashboard')
                 auth.login(request, user)
-
-            elif(client1.userType == 'superuser'):
-                auth.login(request, user)
-                return HttpResponseRedirect('admin')
-                auth.login(request, user)
                 
             else:
                 auth.login(request, user)
-                return redirect('recruiter')
+                return redirect('/recruiter')
 
 
         else:
@@ -261,7 +259,10 @@ def recruiter(request):
         user = User.objects.create(
             username=username, password=password1, email=email)
         recruiterDetails.objects.create(
-            user = user,userTypes = userTypes,Location= Location,CompanyName=CompanyName,CompanyContact=contactNumber,CompanyType=CompanyType,personalName=personalName,personalContact=personalContact,CompanyEmail=CompanyEmail)
+            user = user,Location= Location,CompanyName=CompanyName,CompanyContact=contactNumber,CompanyType=CompanyType,personalName=personalName,personalContact=personalContact,CompanyEmail=CompanyEmail)
+        UserDataTypes.objects.create(
+            userTypes = userTypes,user = user
+        )
         auth.login(request, user)
 
         return redirect('/recruiter')
