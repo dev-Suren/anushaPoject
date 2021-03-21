@@ -35,7 +35,7 @@ def register(request):
             username = username, password = password1, email = email, first_name=first_name,last_name=last_name
         )
         Client.objects.create(
-            user = user, userType = userType, address=address,gender=gender,contact=contact,education=educationLevel
+            user = user, userTypes = userType, address=address,gender=gender,contact=contact,education=educationLevel
         )
         auth.login(request,user)
         return redirect('seekerDashboard')
