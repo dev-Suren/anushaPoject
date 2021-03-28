@@ -387,7 +387,7 @@ footer a {
 .job-item {
     margin: 2rem;
     height: 240px;
-    width: 900px;
+    width: 1000px;
     padding: 1.5rem 3rem;
 
     height: 200px;
@@ -405,6 +405,27 @@ footer a {
     background-color: white;
     border: 1px solid rgba(128, 128, 128, 0.495);
     transition: all ease 300ms;
+}
+.job-item1 {
+    margin: 2rem;
+    height: 230px;
+    width: 1500px;
+    padding: 1.5rem 3rem;
+
+
+
+    display: flex;
+    /* flex-direction: column; */
+    /* text-align: center; */
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 30px;
+
+    
+    background-color: white;
+    border: 1px solid rgba(128, 128, 128, 0.495);
+    transition: all ease 300ms;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .job-item-title{
     margin-bottom: 14px;
@@ -672,7 +693,17 @@ select {
 	border-radius: 30px;
 	transition: .5s;
 }
-
+.social-icons{
+	margin: 30px auto;
+	text-align: center;
+}
+.social-icons img{
+	width: 30px;
+	margin: 0 12px;
+	box-shadow: 0 0 20px 0 #7f7f7f3d;
+	cursor: pointer;
+	border-radius: 50%;
+}
 .input-group{
 	top: 180px;
 	position: absolute;

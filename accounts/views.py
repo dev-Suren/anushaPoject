@@ -38,7 +38,7 @@ def register(request):
             user = user, address=address,gender=gender,contact=contact,education=educationLevel
         )
         UserDataTypes.objects.create(
-            userTypes = userType,user = user
+            user = user,userTypes = userType
         )
         auth.login(request,user)
         return redirect('seekerDashboard')
@@ -105,9 +105,13 @@ def profile(request):
     # user = user.objects.filter(user=request.user)
     
     # return render(request, 'profile.html', {'user': user})
-
-    userdata = Client.objects.filter(user=request.user)
-    return render(request, 'profile.html', {'userdata': userdata})
+    userType=UserDataTypes.objects.get(user=request.user)
+    if(userType == 'seeker'):
+        userdata = Client.objects.filter(user=request.user)
+        return render(request, 'profile.html', {'userdata': userdata,'usertype':userType})
+    else:
+        userdata = recruiterDetails.objects.filter(user=request.user)
+        return render(request, 'profile.html', {'userdata': userdata,'usertype':userType})
 
 
 
