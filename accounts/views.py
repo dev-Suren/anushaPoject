@@ -106,9 +106,9 @@ def profile(request):
     
     # return render(request, 'profile.html', {'user': user})
     userType=UserDataTypes.objects.get(user=request.user)
-    if(userType == 'seeker'):
+    if(userType.userTypes == 'seeker'):
         userdata = Client.objects.filter(user=request.user)
-        return render(request, 'profile.html', {'userdata': userdata,'usertype':userType})
+        return render(request, 'profile1.html', {'userdata': userdata,'usertype':userType})
     else:
         userdata = recruiterDetails.objects.filter(user=request.user)
         return render(request, 'profile.html', {'userdata': userdata,'usertype':userType})
