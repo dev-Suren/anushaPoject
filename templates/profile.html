@@ -1,3 +1,123 @@
+{% load static %}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Recruiter Profile</title>
+</head>
+ <nav class="nav">
+        <div class="logo"></div>
+        <ul class="nav-items" style="margin-left: 1150px;">
+            <li class="nav-item" style="margin-top: 25px;"><a href="{% url 'landingpage' %}"> Home</a></li>
+            <li class="nav-item" style="margin-top: 25px;"><a href="{% url 'profile' %}"> Profile</a></li>
+            <li class="nav-item" style="margin-top: 25px;"><a href="{% url 'applicants' %}"> applicants</a></li>
+            <li class="nav-item" style="margin-top: 25px;"><a href="{% url 'logout' %}"> Logout</a></li>
+        </ul>
+    </nav>
+<body class="w3-light-grey">
+
+<!-- Page Container -->
+<div class="w3-content w3-margin-top" style="max-width:1400px;">
+
+  <!-- The Grid -->
+  <div class="w3-row-padding" style="padding-left: 500px;">
+  
+
+
+    <!-- Right Column -->
+    <div class="w3-twothird" style="width: 620px;
+  border: 5px solid gray;
+  margin: 0;">
+    
+      <div class="w3-white w3-text-grey w3-card-4">
+        <div class="w3-display-container">
+          <div class="w3-display-bottomleft w3-container w3-text-black">
+          	<br>
+          </div>
+        </div>
+        <div class="w3-large">
+        	<br>
+        	<p style="padding-left: 15px;"><b>Company Name:</b></p>
+          <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Company Type:</p>
+          <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>Address:</p>
+          <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>Company Email:</p>
+          <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>Company Phone Number</p>
+          <hr>
+
+          <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Company Details:</b></p>
+          <div class="w3-container">
+          <p>Consectetur adipisicing elit. Praesentium magnam consectetur vel in deserunt aspernatur est reprehenderit sunt hic. Nulla tempora soluta ea et odio, unde doloremque repellendus iure, iste.</p>
+ 			 
+          <br>
+
+          
+          <br>
+        </div>
+      </div><br>
+
+    <!-- End Right Column -->
+    </div>
+    
+  <!-- End Grid -->
+  </div>
+  
+  <!-- End Page Container -->
+</div>
+<footer>
+        <div class="footer-el footer-el-a">
+            <ul>
+                <li><a href="#!">lorem</a></li>
+                <li><a href="#!">lorem</a></li>
+                <li><a href="#!">lorem</a></li>
+            </ul>
+        </div>
+        <div class="footer-el footer-el-b">
+            <ul>
+                <li><a href="#!">lorem</a></li>
+                <li><a href="#!">lorem</a></li>
+                <li><a href="#!">lorem</a></li>
+            </ul>
+        </div>
+        <div class="footer-el footer-el-c">
+            <ul>
+                <li><a href="#!">lorem</a></li>
+                <li><a href="#!">lorem</a></li>
+                <li><a href="#!">lorem</a></li>
+            </ul>
+        </div>
+    </footer>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 {% for user  in userdata %}
 {{user.CompanyName}}<br>
