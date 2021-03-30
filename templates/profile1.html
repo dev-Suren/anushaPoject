@@ -1,3 +1,131 @@
+{% load static %}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+ <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Jobseeker Profile</title>
+</head>
+
+    <nav class="nav">
+    <div class="logo"></div>
+    <ul class="nav-items" style="margin-left: 975px;">
+      <li class="nav-item" style="margin-top: 25px;"><a href="/"> Home</a></li>
+      <li class="nav-item" style="margin-top: 25px;"><a href="{% url 'profile' %}"> Profile</a></li>
+      <li class="nav-item" style="margin-top: 25px;"><a href="{% url 'saved_jobs' %}"> saved jobs</a></li>
+      <li class="nav-item" style="margin-top: 25px;"><a href="{% url 'appliedJobs' %}">Applied Jobs</a></li>
+      <li class="nav-item" style="margin-top: 25px;"><a href="{% url 'logout' %}"> Logout</a></li>
+      
+    </ul>
+  </nav>
+
+<body class="w3-light-grey">
+
+<!-- Page Container -->
+<div class="w3-content w3-margin-top" style="max-width:1400px;">
+
+  <!-- The Grid -->
+  <div class="w3-row-padding" style="padding-left: 500px;">
+  
+
+
+    <!-- Right Column -->
+    <div class="w3-twothird" style="width: 620px;
+  border: 5px solid gray;
+  margin: 0;">
+    
+      <div class="w3-white w3-text-grey w3-card-4">
+        <div class="w3-display-container">
+          <div class="w3-display-bottomleft w3-container w3-text-black">
+          	<br>
+          </div>
+        </div>
+        <div class="w3-large">
+        
+        </div>
+        <div class="w3-large">
+        	<br>
+        	<p class="w3-large" style="padding-left: 15px;"><b>Name:</b></p>
+        	<br>
+          <p class="w3-large"><b><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Educational Level:</b></p>
+          <br>
+          <p class="w3-large"><b><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>Location:</b></p>
+          <br>
+          <p class="w3-large"><b><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>Email:</b></p>
+          <br>
+          <p class="w3-large"><b><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>Phone number:</b></p>
+          <hr>
+
+          <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Qualifications:</b></p>
+          <div class="w3-container">
+          <p>Consectetur adipisicing elit. Praesentium magnam consectetur vel in deserunt aspernatur est reprehenderit sunt hic. Nulla tempora soluta ea et odio, unde doloremque repellendus iure, iste.</p>
+          <br>
+ 			 
+ 			 	<p class="w3-large"><b><i></i>CV:</b></p>
+
+  			<input type="file" id="myFile" name="filename">
+          <br>
+
+          
+          <br>
+        </div>
+      </div><br>
+
+    <!-- End Right Column -->
+    </div>
+    
+  <!-- End Grid -->
+  </div>
+  
+  <!-- End Page Container -->
+</div>
+<footer>
+        <div class="footer-el footer-el-a">
+            <ul>
+                <li><a href="#!">lorem</a></li>
+                <li><a href="#!">lorem</a></li>
+                <li><a href="#!">lorem</a></li>
+            </ul>
+        </div>
+        <div class="footer-el footer-el-b">
+            <ul>
+                <li><a href="#!">lorem</a></li>
+                <li><a href="#!">lorem</a></li>
+                <li><a href="#!">lorem</a></li>
+            </ul>
+        </div>
+        <div class="footer-el footer-el-c">
+            <ul>
+                <li><a href="#!">lorem</a></li>
+                <li><a href="#!">lorem</a></li>
+                <li><a href="#!">lorem</a></li>
+            </ul>
+        </div>
+    </footer>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
 {{user.email}}<br>
 {{user.first_name}}<br>
 {{user.last_name}}<br>
