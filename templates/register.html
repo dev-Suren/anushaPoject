@@ -22,7 +22,7 @@
         <div class="form">
             <h1 class="title">Create an account</h1>
    
-            <form action="{% url 'register' %}" method="post" class="myform">
+            <form action="{% url 'register' %}" method="post" class="myform",enctype="multipart/form-data">
                 {% csrf_token %}
                 
                 <div class="control-from">
@@ -76,6 +76,9 @@
                     <label for="educationLevel">Education Level *</label>
                     <input type="text" name="educationLevel" id="educationLevel" value="" required>
                 </div>
+                <p class="w3-large"><b><i></i>CV:</b></p>
+
+  			    <input type="file" id="image" name="image">
    
                 <div class="button">
                     <button action ="submit" id="register">Register</button>

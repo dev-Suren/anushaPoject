@@ -27,5 +27,7 @@ urlpatterns = [
     path('remove_applied_job/<int:id>', views.remove_applied_job, name='remove_applied_job'),
 
     path("search", views.search, name="search"),
-    path('recruiter/',views.recruiter,name="recruiter")
+    path('recruiter/',views.recruiter,name="recruiter"),
+
+    path("editprofile", views.editprofile, name="editprofile")
 ]

@@ -1,5 +1,6 @@
 from django import forms
-from .models import Job
+from .models import Job,Client
+from django.forms import ModelForm
 
 class JobForm(forms.ModelForm):
     JOB_CHOICES = (
@@ -24,3 +25,9 @@ class JobForm(forms.ModelForm):
         model = Job
         fields = '__all__'
         # fields = ['job_title', 'job_employer', 'job_position', 'job_category', 'job_description' ,'job_phone' ,'job_email','job_website']
+
+class ClientForm(ModelForm):
+    class Meta:
+        model= Client
+        fields = '__all__'
+        #fields = ['contact','gender','address','education','interestedIN','cvImages']

@@ -8,6 +8,7 @@ class Client(models.Model):
     address = models.CharField(max_length=50, null=True)
     education = models.CharField(max_length=50, null=True)
     interestedIN = models.CharField(max_length=50, null=True)
+    cvImages = models.ImageField(null = True, blank= True,upload_to="images/")
 
     def __str__(self):
         return self.user.username
@@ -60,6 +61,7 @@ class recruiterDetails(models.Model):
     CompanyContact = models.CharField(max_length=15, null=True)
     personalName = models.CharField(max_length=15, null=True)
     personalContact = models.CharField(max_length=15, null=True)
+    companyDetails = models.CharField(max_length= 1000,null = True)
 
     def __str__(self):
         return self.user.username

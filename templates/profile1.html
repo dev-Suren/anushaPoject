@@ -53,26 +53,26 @@
         </div>
         <div class="w3-large">
         	<br>
-        	<p class="w3-large" style="padding-left: 15px;"><b>Name:</b></p>
+        	<p class="w3-large" style="padding-left: 15px;"><b>Name:{{user.first_name}} {{user.last_name}}</b></p>
         	<br>
-          <p class="w3-large"><b><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Educational Level:</b></p>
+          <p class="w3-large"><b><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>Email: {{user.email}}</b></p>
+
           <br>
-          <p class="w3-large"><b><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>Location:</b></p>
+          {% for user in userdata %}
+          <p class="w3-large"><b><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>Gender: {{user.gender}}</b></p>
           <br>
-          <p class="w3-large"><b><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>Email:</b></p>
+          <p class="w3-large"><b><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Educational Level:{{user.education}}</b></p>
           <br>
-          <p class="w3-large"><b><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>Phone number:</b></p>
+          <p class="w3-large"><b><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>Phone number:{{user.contact}}</b></p>
           <hr>
 
-          <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Qualifications:</b></p>
+          <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Interreted In:{{user.interestedIN}}</b></p>
           <div class="w3-container">
+            {% endfor %}
           <p>Consectetur adipisicing elit. Praesentium magnam consectetur vel in deserunt aspernatur est reprehenderit sunt hic. Nulla tempora soluta ea et odio, unde doloremque repellendus iure, iste.</p>
           <br>
- 			 
- 			 	<p class="w3-large"><b><i></i>CV:</b></p>
-
-  			<input type="file" id="myFile" name="filename">
-          <br>
+          <img src="{{user.image}}" alt="Smiley face" width="250" height="250">
+          <br />
 
           
           <br>
@@ -116,20 +116,3 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-{{user.email}}<br>
-{{user.first_name}}<br>
-{{user.last_name}}<br>
-{% for user in userdata %}
-{{user.contact}}<br>
-{{user.gender}}
-{% endfor %}

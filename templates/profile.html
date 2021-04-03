@@ -45,18 +45,19 @@
           </div>
         </div>
         <div class="w3-large">
+            {% for user  in userdata %}
         	<br>
-        	<p style="padding-left: 15px;"><b>Company Name:</b></p>
-          <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Company Type:</p>
-          <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>Address:</p>
-          <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>Company Email:</p>
-          <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>Company Phone Number</p>
+        	<p style="padding-left: 15px;"><b>Company Name: {{user.CompanyName}}</b></p>
+          <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Company Type:{{user.CompanyType}} </p>
+          <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>Address: {{user.Location}}</p>
+          <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>Company Email: {{user.CompanyEmail}}</p>
+          <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>Phone Number: {{user.CompanyContact}}</p>
           <hr>
 
-          <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Company Details:</b></p>
+          <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Company Details: </b></p>
           <div class="w3-container">
-          <p>Consectetur adipisicing elit. Praesentium magnam consectetur vel in deserunt aspernatur est reprehenderit sunt hic. Nulla tempora soluta ea et odio, unde doloremque repellendus iure, iste.</p>
- 			 
+          <p>{{user.companyDetails}}</p>
+          {%endfor%}
           <br>
 
           
@@ -98,33 +99,6 @@
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-{% for user  in userdata %}
-{{user.CompanyName}}<br>
-{{user.CompanyEmail}}<br>
-{{user.CompanyContact}}<br>
-{{user.Location}}<br>
-{%endfor%}
 
 
 

@@ -18,6 +18,7 @@ def register(request):
         gender = request.POST['gender']
         contact = request.POST['contact']
         educationLevel = request.POST['educationLevel']
+        image = request.POST['image']
         userType = 'seeker'
 
         if password1 != password2:
@@ -35,7 +36,7 @@ def register(request):
             username = username, password = password1, email = email, first_name=first_name,last_name=last_name
         )
         Client.objects.create(
-            user = user, address=address,gender=gender,contact=contact,education=educationLevel
+            user = user, address=address,gender=gender,contact=contact,education=educationLevel,cvImages=image
         )
         UserDataTypes.objects.create(
             user = user,userTypes = userType
@@ -244,6 +245,7 @@ def recruiter(request):
         personalName = request.POST['PersonalName']
         personalContact = request.POST['PersonalContact']
         address = request.POST['address']
+        companyDetails = request.POST['companyDetails']
         
 
         
@@ -263,7 +265,7 @@ def recruiter(request):
         user = User.objects.create(
             username=username, password=password1, email=email)
         recruiterDetails.objects.create(
-            user = user,Location= Location,CompanyName=CompanyName,CompanyContact=contactNumber,CompanyType=CompanyType,personalName=personalName,personalContact=personalContact,CompanyEmail=CompanyEmail)
+            user = user,Location= Location,CompanyName=CompanyName,CompanyContact=contactNumber,CompanyType=CompanyType,personalName=personalName,personalContact=personalContact,CompanyEmail=CompanyEmail,companyDetails=companyDetails)
         UserDataTypes.objects.create(
             userTypes = userTypes,user = user
         )
@@ -273,3 +275,15 @@ def recruiter(request):
 
     else:
         return render(request, 'recruiter.html')
+
+
+
+def editprofile(request):
+    form = ClientForm()
+    if request.method == 'POST':
+        form = ClientForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('profile')
+    context = {'form':form}
+    return render(request,'editprofile.html',context)
